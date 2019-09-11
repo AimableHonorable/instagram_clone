@@ -1,0 +1,30 @@
+<div class="super">
+
+<p id="notice"><%= notice %></p>
+<%= link_to 'New Post', new_post_path %>
+<h1>Posts</h1>
+
+    <% @posts.each do |post| %>
+      <div class="p-3 mb-2 bg-white text-dark border"">
+      <p>
+        <strong><%= post.user.username %></strong>
+      </p>
+      <p>
+        <%= post.texts %>
+      </p>
+      <p>
+        <%= image_tag post.image.url %>      
+      </p>
+      <p>
+      <a><%= link_to 'Show', post %></a>
+      <% if logged_in? %>
+        <% if current_user.id == post.user_id %>
+          <a><%= link_to 'Edit', edit_post_path(post) %></a>
+          <a><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+        <% end %>
+      <% end %>
+      </p>
+      </div>
+    <% end %>
+
+</div>
