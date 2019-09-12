@@ -1,20 +1,26 @@
 <div class="super">
   <p id="notice"><%= notice %></p>
-    <div class="p-3 mb-2 bg-white text-dark border"">
+  <div class="p-3 mb-2 bg-white text-dark border">
     <p>
       <strong><%= @post.user.username %><strong>
     </p>
 
-    <p>
-      <small><%= @post.texts %></small>
+    <p> 
+      <% if @post.texts %>
+        <small><%= @post.texts %></small>
+      <% end %>
     </p>
 
     <p>
-      <%= image_tag @post.image.url %>
+      <% if @post.image.url %>
+        <%= image_tag @post.image.url %>
+      <% end %>
     </p>
-
-
-    <%= link_to 'Edit', edit_post_path(@post) %> |
     <%= link_to 'Back', posts_path %>
+    <% if logged_in? %>
+      <% if current_user.id == @post.user_id %>
+        <%= link_to 'Edit', edit_post_path(@post) %>
+      <% end %>
+    <% end %>
   </div>
 </div>

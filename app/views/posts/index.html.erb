@@ -33,10 +33,14 @@
       <strong><%= post.user.username %></strong>
       </p>
       <p>
-        <%= post.texts %>
+        <% if post.texts %>
+          <%= post.texts %>
+        <% end %>
       </p>
       <p>
-        <%= image_tag post.image.url %>      
+        <% if post.image.url %>
+          <%= image_tag post.image.url %>      
+        <% end %>
       </p>
       <p>
       <a><%= link_to 'Show', post %></a>
