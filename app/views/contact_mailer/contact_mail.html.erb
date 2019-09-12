@@ -1,0 +1,8 @@
+<h1> Your post is published</h1>
+
+<h4>name: <%= @contact.user.username %></h4>
+
+<h4> Confirmation post </h4>
+
+<p>content: <%= @contact.texts %></p>
+<p>Image: <%= image_tag @contact.image.url, size:"150x150" %></p>
