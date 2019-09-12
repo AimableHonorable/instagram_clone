@@ -24,3 +24,21 @@
 img{
   max-width: 650px;
 }
+.btn-info{
+  margin-bottom: 10px;
+}
+.btn-info a{
+  color: white;
+  font-weight: bold;
+}
+.btn-info a:hover{
+  text-decoration: none;
+  background-color: transparent;
+  color: #eaeaec;
+  font-size: 18px;
+}
+a:hover{
+  background-color: transparent; 
+  text-decoration: none;
+  font-size: 14px;
+}

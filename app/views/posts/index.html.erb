@@ -1,13 +1,36 @@
 <div class="super">
 
 <p id="notice"><%= notice %></p>
-<%= link_to 'New Post', new_post_path %>
-<h1>Posts</h1>
 
+<% if logged_in? %>
+  <% check = 0, profile_pic='1', id=nil, nam=nil %>
+  <% @profiles.each do |profile| %>
+    <% if current_user.id == profile.user_id %>
+      <% check = 1%>
+      <%nam= profile.user.full_name%>
+      <%profile_pic = profile.image.url %>
+    
+    <% end %>
+  <% end %>
+  <% if check==1 %>
+    <p><%= image_tag profile_pic, size:"150x150",class:"rounded-circle" unless profile_pic.blank? %>
+    <h2><%= nam%></h2>
+    </p>
+  <% else %>
+    <p><%=image_tag "user.png", size:"150x150",class:"rounded-circle" %></p>
+    <%= nam%>
+  <% end %>
+<% end %>
+
+    <button class="btn btn-info">
+      <a>
+        <%= link_to 'New Post', new_post_path %>
+      </a>
+    </button>
     <% @posts.each do |post| %>
-      <div class="p-3 mb-2 bg-white text-dark border"">
+      <div class="p-3 mb-2 bg-white text-dark border">
       <p>
-        <strong><%= post.user.username %></strong>
+      <strong><%= post.user.username %></strong>
       </p>
       <p>
         <%= post.texts %>

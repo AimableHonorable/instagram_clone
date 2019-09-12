@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :upload_new_profile_picture %>
+    <%= form.label :upload_image %>
     <%= image_tag(@profile.image.url) if @profile.image && @profile.image.url %>
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
