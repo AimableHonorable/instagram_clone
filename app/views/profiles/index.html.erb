@@ -21,7 +21,12 @@
     
     <h2><%= nam%></h2>
   <% else %>
-    <p><%=image_tag "user.png", size:"150x150",class:"rounded-circle" %></p>
+    <p>
+    <%=image_tag "user.png", size:"150x150",class:"rounded-circle" %>
+    <button class="btn btn-info">
+      <%= link_to 'change profile', new_profile_path %>
+    </button>
+    </p>
     <%= nam%>
   <% end %>
   
